@@ -1,0 +1,13 @@
+apiVersion: devices.kubeedge.io/v1alpha1
+kind: DeviceModel
+metadata:
+  name: xiaomi-bedside-lamp2-model
+  namespace: default
+spec:
+  properties:
+    - name: status
+      description: Indicates whether the lamp light is ON/OFF
+      type:
+        string:
+          accessMode: ReadWrite
+          defaultValue: 'OFF'

@@ -1,0 +1,29 @@
+apiVersion: devices.kubeedge.io/v1alpha1
+kind: Device
+metadata:
+  name: lamp-instance-01
+  labels:
+    description: Xiaomi-Bedside-Lamp2
+    manufacturer: test
+    model: xiaomi-bedside-lamp2-model
+spec:
+  deviceModelRef:
+    name: xiaomi-bedside-lamp2-model
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - key: ""
+            operator: In
+            values:
+              - edge-node
+status:
+  twins:
+    - propertyName: status
+      reported:
+        metadata:
+          type: string
+        value: "OFF"
+      desired:
+        metadata:
+          type: string
+        value: 'OFF'

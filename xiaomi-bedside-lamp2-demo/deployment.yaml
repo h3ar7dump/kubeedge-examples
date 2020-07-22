@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xiaomi-lamp2-mapper-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lamp-mapper
+  template:
+    metadata:
+      labels:
+        app: lamp-mapper
+    spec:
+      hostNetwork: true
+      containers:
+        - name: lamp-mapper-container
+          image: kindlaw/lamp-mapper:v1.0
+          imagePullPolicy: Always
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: config-volume
+              mountPath: /opt/kubeedge/
+      volumes:
+        - name: config-volume
+          configMap:
+            name: device-profile-config-slaanesh
+      restartPolicy: Always
