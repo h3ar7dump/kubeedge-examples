@@ -1,0 +1,13 @@
+apiVersion: devices.kubeedge.io/v1alpha1
+kind: DeviceModel
+metadata:
+  name: xiaomi-door-window-sensor-model
+  namespace: default
+spec:
+  properties:
+    - name: status
+      description: Indicates whether the door window sensor is ON/OFF
+      type:
+        string:
+          accessMode: ReadWrite
+          defaultValue: 'OFF'

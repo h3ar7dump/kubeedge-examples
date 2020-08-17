@@ -1,0 +1,29 @@
+apiVersion: devices.kubeedge.io/v1alpha1
+kind: Device
+metadata:
+  name: door-window-sensor-instance-01
+  labels:
+    description: xiaomi-door-window-sensor-instance
+    manufacturer: test
+    model: xiaomi-door-window-sensor-model
+spec:
+  deviceModelRef:
+    name: xiaomi-door-window-sensor-model
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - key: ""
+            operator: In
+            values:
+              - edge-node
+status:
+  twins:
+    - propertyName: status
+      reported:
+        metadata:
+          type: string
+        value: "OFF"
+      desired:
+        metadata:
+          type: string
+        value: 'OFF'
