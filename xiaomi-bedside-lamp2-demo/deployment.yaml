@@ -15,7 +15,7 @@ spec:
       hostNetwork: true
       containers:
         - name: lamp-mapper-container
-          image: kindlaw/lamp-mapper:v1.0
+          image: kindlaw/lamp-mapper:v1.2.1
           imagePullPolicy: Always
           securityContext:
             privileged: true
